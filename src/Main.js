@@ -5,6 +5,7 @@ import { Route, Switch } from 'react-router'
 import Waiting from "./Waiting";
 import Intro from "./Intro"
 import PrezTeam from "./PrezTeam"
+import Prez from "./Prez"
 import App from './App';
 import Pause from './Pause';
 import End from './End'
@@ -41,11 +42,12 @@ class Main extends React.Component {
 			<div className="Main">
 				<div className={"MainContainer" + (this.state.doing ? " Out" : "")}>
 					<Switch>
-						<Route exact path="/" component={() => <Waiting socket={socket} /> } />
-						<Route exact path="/waiting" component={() => <Waiting socket={socket} /> } />
+						<Route exact path="/" component={() => <Waiting socket={socket} team1={team1} team2={team2} /> } />
+						<Route exact path="/waiting" component={() => <Waiting socket={socket} team1={team1} team2={team2} /> } />
 						<Route exact path="/intro" component={() => <Intro socket={socket} /> } />
-						<Route exact path="/team1" component={() => <PrezTeam socket={socket} index={0} team={team1} /> } />
-						<Route exact path="/team2" component={() => <PrezTeam socket={socket} index={1} team={team2} /> } />
+						<Route exact path="/team1" component={() => <PrezTeam socket={socket} index={0} team={team2} /> } />
+						<Route exact path="/team2" component={() => <PrezTeam socket={socket} index={1} team={team1} /> } />
+						<Route exact path="/prez" component={() => <Prez socket={socket} team1={team1} team2={team2} /> } />
 						<Route exact path="/game*" component={() => <App socket={socket} team1={team1} team2={team2} scores={this.state.scores} /> } />
 						<Route exact path="/pause" component={() => <Pause socket={socket} team1={team1} team2={team2} /> } />
 						<Route exact path="/end" component={() => <End socket={socket} team1={team1} team2={team2} /> } />

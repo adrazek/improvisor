@@ -9,7 +9,7 @@ import openSocket from 'socket.io-client';
 
 class Admin extends React.Component {
 
-	statuses = ["waiting", "intro", "team1", "team2", "game1", "pause", "game2", "end"]
+	statuses = ["waiting", "intro", "team1", "team2", "prez", "game1", "pause", "game2", "end"]
 
 	state = {
 		status: "waiting"
