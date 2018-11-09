@@ -1,7 +1,13 @@
 import React from "react"
 
-export default ({}) => (
+import explosion from './assets/Heart_Explosion.png'
+
+import './Intro.css'
+
+export default ({team1, team2}) => (
 	<div className="Intro">
-		Intro
+		<img className="explosion" src={explosion} />
+		<img src={team1} className="IntroTeam1" />
+		<img src={team2} className="IntroTeam2" />
 	</div>
 )

@@ -13,6 +13,8 @@ import End from './End'
 import team1 from './assets/clit.png'
 import team2 from './assets/imposteurs.png'
 
+import Sentences from "./Sentences"
+
 import openSocket from 'socket.io-client';
 const socket = openSocket('http://localhost:8000');
 
@@ -42,9 +44,9 @@ class Main extends React.Component {
 			<div className="Main">
 				<div className={"MainContainer" + (this.state.doing ? " Out" : "")}>
 					<Switch>
-						<Route exact path="/" component={() => <Waiting socket={socket} team1={team1} team2={team2} /> } />
-						<Route exact path="/waiting" component={() => <Waiting socket={socket} team1={team1} team2={team2} /> } />
-						<Route exact path="/intro" component={() => <Intro socket={socket} /> } />
+						<Route exact path="/" component={() => <Waiting socket={socket} team1={team1} team2={team2} sentences={Sentences} /> } />
+						<Route exact path="/waiting" component={() => <Waiting socket={socket} team1={team1} team2={team2} sentences={Sentences} /> } />
+						<Route exact path="/intro" component={() => <Intro socket={socket} team1={team1} team2={team2} /> } />
 						<Route exact path="/team1" component={() => <PrezTeam socket={socket} index={0} team={team2} /> } />
 						<Route exact path="/team2" component={() => <PrezTeam socket={socket} index={1} team={team1} /> } />
 						<Route exact path="/prez" component={() => <Prez socket={socket} team1={team1} team2={team2} /> } />

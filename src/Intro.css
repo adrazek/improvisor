@@ -1,0 +1,28 @@
+.Intro {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	display: flex;
+}
+.explosion {
+	display: none;
+	width: 90%;
+	height: 100%;
+	opacity: .5;
+}
+
+.IntroTeam1 {
+	position: absolute;
+	height: 70%;
+	bottom: 15%;
+	left: 5%;
+}
+
+.IntroTeam2 {
+	position: absolute;
+	height: 70%;
+	bottom: 15%;
+	right: 5%;
+}

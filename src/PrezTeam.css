@@ -65,39 +65,40 @@
 	animation-iteration-count: infinite;
 }
 
-.PrezTeam>.Background>#back1 {
-	display: block;
-}
-
 .PrezTeam>.Background>.Back {
 	display: block;
 }
 
 .PrezTeam>.Background>#back1 {
 	background: url(assets/background-1.png) no-repeat center center fixed;
-	opacity: 1;
+	background-size: cover;
+	opacity: 0;
 }
 
 .PrezTeam>.Background>#back2 {
 	background: url(assets/background-2.png) no-repeat center center fixed;
+	background-size: cover;
 	animation-delay: .2s;
 	opacity: 0;
 }
 
 .PrezTeam>.Background>#back3 {
 	background: url(assets/background-3.png) no-repeat center center fixed;
+	background-size: cover;
 	animation-delay: .4s;
 	opacity: 0;
 }
 
 .PrezTeam>.Background>#back4 {
 	background: url(assets/background-4.png) no-repeat center center fixed;
+	background-size: cover;
 	animation-delay: .6s;
 	opacity: 0;
 }
 
 .PrezTeam>.Background>#back5 {
 	background: url(assets/background-5.png) no-repeat center center fixed;
+	background-size: cover;
 	animation-delay: .8s;
 	opacity: 0;
 }
@@ -106,7 +107,6 @@
 	0% {
 		opacity: 0;
 	}
-
 	33% {
 		opacity: 1;
 	}

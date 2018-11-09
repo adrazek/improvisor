@@ -2,7 +2,7 @@ import React from "react"
 
 import Team from "./Team"
 
-export default ({logos, scores, animate, theme}) => (
+export default ({logos, scores, animate, theme, outTheme}) => (
 	<div className={"Scores" + (animate ? " Animated" : "")}>
 		<Team
 			id="Team1"
@@ -17,7 +17,7 @@ export default ({logos, scores, animate, theme}) => (
 			hasTheme={theme}
 		/>
 		{ theme
-			? <div className="Theme">{theme}</div>
+			? <div className={"Theme" + (outTheme ? " Out" : "")}>{theme}</div>
 			: null
 		}
 	</div>

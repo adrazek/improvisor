@@ -7,9 +7,12 @@ import Team from './AdminTeam'
 
 import openSocket from 'socket.io-client';
 
+import './Admin.css'
+
 class Admin extends React.Component {
 
 	statuses = ["waiting", "intro", "team1", "team2", "prez", "game1", "pause", "game2", "end"]
+	labels = ["Entrée salle", "Intro MC", "Entrée Equipe 1", "Entrée Equipe 2", "Présentation", "1ere mi-temps", "Entracte", "Seconde mi-temps", "Fin"]
 
 	state = {
 		status: "waiting"
@@ -27,14 +30,16 @@ class Admin extends React.Component {
 	render() {
 		return (
 			<div className="Admin">
-				{ this.statuses.indexOf(this.state.status) > 0
-					? <button onClick={() => { this._setPrevious(() => { this.socket.emit("next", this.state.status) }) } }>Précédent</button>
-					: null
-				}
-				{ this.statuses.indexOf(this.state.status) < (this.statuses.length - 1)
-					? <button onClick={() => { this._setNext(() => { this.socket.emit("next", this.state.status) }) } }>Suivant</button>
-					: null
-				}
+				<div className="Navigation">
+					{ this.statuses.indexOf(this.state.status) > 0
+						? <button onClick={() => { this._setPrevious(() => { this.socket.emit("next", this.state.status) }) } } className="btn-nav btn-previous"> {"<"} </button>
+						: <div />
+					}
+					{ this.statuses.indexOf(this.state.status) < (this.statuses.length - 1)
+						? <button onClick={() => { this._setNext(() => { this.socket.emit("next", this.state.status) }) } } className="btn-nav btn-next"> > </button>
+						: null
+					}
+				</div>
 				{ this.state.status.indexOf("game") !== -1
 					? [
 							<Team
@@ -56,7 +61,9 @@ class Admin extends React.Component {
 								<button onClick={() => { this.socket.emit("theme", this.refs.theme.value) }}>Envoyer</button>
 							</div>
 						]
-					: null
+					: <div className="RouteTitle">
+							{this._getRouteTitle()}
+						</div>
 				}
 			</div>
 		)
@@ -74,6 +81,10 @@ class Admin extends React.Component {
 		if (index >= 0) {
 			this.setState({status: this.statuses[index]}, callback)
 		}
+	}
+
+	_getRouteTitle = () => {
+		return this.labels[this.statuses.indexOf(this.state.status)]
 	}
 
 }

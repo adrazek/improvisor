@@ -3,9 +3,14 @@
  src: url("assets/LAIKA.otf");
 }
 
+body {
+	font-family: "Sedgwick";
+}
+
 .Main {
 	background: black;
 	background: url(assets/background-1.png) no-repeat center center fixed;
+	background-size: cover;
 	font-family: "Sedgwick";
 	position: absolute;
 	top: 0;
@@ -77,10 +82,12 @@
 	justify-content: center;
 }
 
+/*
 .Scores>.Team.WithTheme {
 	bottom: 70%;
 	flex-direction: row;
 }
+*/
 
 .Scores>.Team>.LogoContainer>.Logo {
 	height: 90%;
@@ -99,15 +106,46 @@
 }
 
 .Theme {
+	background: #ffffff;
 	position: absolute;
-	left: 50px;
-	right: 50px;
+	padding: 30px;
+	left: 30px;
+	right: 30px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	top: 20%;
-	bottom: 0;
+	top: 30px;
+	bottom: 30px;
 	font-size: 175px;
+	z-index: 999999;
+	animation-name: theme;
+	animation-duration: 0.5s;
+}
+
+.Theme.Out {
+	animation-name: theme-out;
+}
+
+@keyframes theme {
+	0% {
+		left: -100%;
+		right: 100%;
+	}
+	100% {
+		left: 0%;
+		right: 0%;
+	}
+}
+
+@keyframes theme-out {
+	0% {
+		left: 0%;
+		right: 0%;
+	}
+	100% {
+		left: 100%;
+		right: -100%;
+	}
 }
 
 .Scores>#Team2>.LogoContainer>.Logo {
@@ -132,9 +170,11 @@
 	justify-content: center;
 }
 
+/*
 .Scores>.Team.WithTheme>.LogoContainer>.Logo {
 	height: 130%;
 }
+*/
 
 #Team1>.Logo {
 	width: 45%;
@@ -157,12 +197,14 @@
 	justify-content: center;
 }
 
+/*
 .Scores>.Team.WithTheme>.score-value {
 	font-size: 100px;
 	width: 50%;
 	margin-right: 30px;
 	width: 200px;
 }
+*/
 
 .Scores.Animated>#Team1 {
 	animation-name: team-first;
@@ -252,29 +294,34 @@
 
 .Scoring>.Background>#back1 {
 	background: url(assets/background-1.png) no-repeat center center fixed;
+	background-size: cover;
 	opacity: 1;
 }
 
 .Scoring>.Background>#back2 {
 	background: url(assets/background-2.png) no-repeat center center fixed;
+	background-size: cover;
 	animation-delay: .2s;
 	opacity: 0;
 }
 
 .Scoring>.Background>#back3 {
 	background: url(assets/background-3.png) no-repeat center center fixed;
+	background-size: cover;
 	animation-delay: .4s;
 	opacity: 0;
 }
 
 .Scoring>.Background>#back4 {
 	background: url(assets/background-4.png) no-repeat center center fixed;
+	background-size: cover;
 	animation-delay: .6s;
 	opacity: 0;
 }
 
 .Scoring>.Background>#back5 {
 	background: url(assets/background-5.png) no-repeat center center fixed;
+	background-size: cover;
 	animation-delay: .8s;
 	opacity: 0;
 }
@@ -374,63 +421,3 @@
 	}
 }
 
-.Admin {
-	padding: 30px;
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-
-	position: absolute;
-	left: 0;
-	right: 0;
-	top: 0;
-	bottom: 0;
-	background: black;
-}
-
-.AdminTeam {
-	display: flex;
-	flex:1;
-	margin: 20px;
-	background: white;
-	padding: 20px;
-}
-
-.AdminTeam>.LogoContainer {
-	display: flex;
-	height: 100%;
-}
-
-.AdminTeam>.LogoContainer>.Logo {
-	max-width: 100%;
-    max-height: 100%;
-    height: inherit !important;
-	object-fit: contain;
-}
-
-.AdminTeam>.Actions {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-	margin-left: 20px;
-}
-
-.AdminTeam>.Actions>button {
-	border: 0;
-	background: #d9ead3ff;
-	margin: 10px;
-	width: 75px;
-	height: 75px;
-	font-size: 30px;
-	color: black;
-	border-radius: 5px;
-	font-family: "Sedgwick";
-}
-
-.AdminTeam>.Actions>.ActionDefault {
-	width: 50px;
-	height: 50px;
- 	background: #d9d2e9ff;
-}

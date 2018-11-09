@@ -17,6 +17,8 @@ class App extends Component {
 		doing: false,
 		scores: [0, 0],
 		last: undefined,
+		theme: "",
+		outTheme: false
 	}
 
 	componentDidMount = () => {
@@ -59,6 +61,7 @@ class App extends Component {
 						logos={[this.props.team1, this.props.team2]}
 						scores={this.state.scores}
 						theme={this.state.theme}
+						outTheme={this.state.outTheme}
 					/>
 			</HotKeys>
     )
@@ -82,23 +85,39 @@ class App extends Component {
 
 	_handleScoreUp = (index, animate) => {
 		if (!this.state.doing) {
-			var scores = this.state.scores
-			if (animate) {
-				this.setState({lastUp: index, doing: true, theme: undefined}, () => {
-					setTimeout(() => {
-						scores[index]++
-						this.setState({scores, lastUp: undefined, doing: false, theme: undefined})
-					}, 8500)
-				})
+			console.log("THEME")
+			console.log(this.state.theme)
+			if (this.state.theme) {
+				this._handleTheme("", () => { this._handleScoreUp(index, animate) })
 			} else {
-				scores[index]++
-				this.setState({lastUp: undefined, doing: false, theme: undefined})
+				var scores = this.state.scores
+				if (animate) {
+					this.setState({lastUp: index, doing: true, theme: undefined}, () => {
+						setTimeout(() => {
+							scores[index]++
+							this.setState({scores, lastUp: undefined, doing: false, theme: undefined})
+						}, 8500)
+					})
+				} else {
+					scores[index]++
+					this.setState({lastUp: undefined, doing: false, theme: undefined})
+				}
 			}
 		}
 	}
 
-	_handleTheme = (theme) => {
-		this.setState({theme})
+	_handleTheme = (theme, callback=null) => {
+		if (theme == "" && !this.state.outTheme) {
+			this.setState({outTheme: true}, () => {
+				setTimeout(() => {
+					this._handleTheme(theme, callback)
+				}, 500)
+			})
+		} else {
+			this.setState({theme, outTheme: false}, () => {
+				if (callback) callback()
+			})
+		}
 	}
 }
 

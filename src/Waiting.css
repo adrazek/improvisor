@@ -1,7 +1,7 @@
 .Content {
-	left: -100%;
+	right: 0;
+	left: 0;
 	bottom: 0;
-	right: 100%;
 	top: 0;
 	position: absolute;
 	font-size: 100px;
@@ -9,11 +9,14 @@
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	animation-duration: 45s;
+	animation-duration: 60s;
 	animation-iteration-count: infinite;
+	padding: 100px;
 }
 
 .Title {
+	left: -100%;
+	right: 100%;
 	animation-name: title;
 }
 
@@ -33,10 +36,11 @@
 	right: 0;
 	text-align: center;
 	padding-top: 100px;
-	font-size: 100px;
+	font-size: 130px;
 	animation-name: tonight;
-	animation-duration: 45s;
+	animation-duration: 60s;
 	animation-iteration-count: infinite;
+	z-index: 99999;
 }
 
 .Team {
@@ -47,12 +51,13 @@
 	right: 0;
 	display: flex;
 	align-items: flex-end;
-	margin: 5%;
+	margin: 10%;
 	margin-bottom: 10%;
+	z-index: 999999;
 }
 
 .Team>img {
-	height: 70%;
+	height: 90%;
 	object-fit: contain;
 }
 
@@ -60,7 +65,7 @@
 	left: -100%;
 	right: 100%;
 	animation-name: team-one;
-	animation-duration: 45s;
+	animation-duration: 60s;
 	animation-iteration-count: infinite;
 }
 
@@ -69,7 +74,7 @@
 	right: 0;
 	top: 0;
 	bottom: 0;
-	animation-name: versus;
+	//animation-name: versus;
 	display: flex;
 	align-items: center;
 	text-align: center;
@@ -78,12 +83,20 @@
 	margin-left: -75px;
 }
 
+.IntroVersus>img {
+	height: 0%;
+	object-fit: contain;
+	animation-name: versus-img;
+	animation-duration: 60s;
+	animation-iteration-count: infinite;
+}
+
 .Team2 {
 	justify-content: flex-end;
 	left: 100%;
 	right: -100%;
 	animation-name: team-two;
-	animation-duration: 45s;
+	animation-duration: 60s;
 	animation-iteration-count: infinite;
 }
 
@@ -191,23 +204,23 @@
 	}
 }
 
-@keyframes versus {
+@keyframes versus-img {
 	0% { 
 	}
 	28% {
-		font-size: 0px;
+		height: 0%;
 		transform: rotate(0deg);
 	}
 	29% {
-		font-size: 250px;
+		height: 130%;
 		transform: rotate(720deg);
 	}
 	50% {
-		font-size: 250px;
+		height: 130%;
 		transform: rotate(720deg);
 	}
-	53% {
-		font-size: 0px;
+	51% {
+		height: 0%;
 		transform: rotate(0deg);
 	}
 	100% {
@@ -248,7 +261,7 @@
 	right: 0;
 	left: 0;
 	animation-name: background-container;
-	animation-duration: 45s;
+	animation-duration: 60s;
 	animation-iteration-count: infinite;
 }
 
@@ -303,29 +316,34 @@
 
 .Waiting>.BackgroundContainer>.Background>#back1 {
 	background: url(assets/background-1.png) no-repeat center center fixed;
+	background-position: cover;
 	opacity: 1;
 }
 
 .Waiting>.BackgroundContainer>.Background>#back2 {
 	background: url(assets/background-2.png) no-repeat center center fixed;
+	background-size: cover;
 	animation-delay: .2s;
 	opacity: 0;
 }
 
 .Waiting>.BackgroundContainer>.Background>#back3 {
 	background: url(assets/background-3.png) no-repeat center center fixed;
+	background-size: cover;
 	animation-delay: .4s;
 	opacity: 0;
 }
 
 .Waiting>.BackgroundContainer>.Background>#back4 {
 	background: url(assets/background-4.png) no-repeat center center fixed;
+	background-size: cover;
 	animation-delay: .6s;
 	opacity: 0;
 }
 
 .Waiting>.BackgroundContainer>.Background>#back5 {
 	background: url(assets/background-5.png) no-repeat center center fixed;
+	background-size: cover;
 	animation-delay: .8s;
 	opacity: 0;
 }
@@ -342,3 +360,137 @@
 		opacity: 0;
 	}
 }
+
+.Blabla1 {
+	left: -100%;
+	right: 100%;
+	animation-name: blabla-one;
+}
+
+.Blabla2 {
+	left: -100%;
+	right: 100%;
+	animation-name: blabla-two;
+}
+
+.Blabla3 {
+	left: -100%;
+	right: 100%;
+	animation-name: blabla-three;
+}
+
+.Blabla4 {
+	left: -100%;
+	right: 100%;
+	animation-name: blabla-four;
+}
+
+@keyframes blabla-one {
+	0% {
+		left: -100%;
+		right: 100%;
+	}
+	53% {
+		left: -100%;
+		right: 100%;
+	}
+	55% {
+		right: 0%;
+		left: 0%;
+	}
+	63% {
+		right: 0%;
+		left: 0%;
+	}
+	65% {
+		right: -100%;
+		left: 100%;
+	}
+	100% {
+		right: -100%;
+		left: 100%;
+	}
+}
+
+@keyframes blabla-two {
+	0% {
+		left: -100%;
+		right: 100%;
+	}
+	65% {
+		left: -100%;
+		right: 100%;
+	}
+	67% {
+		right: 0%;
+		left: 0%;
+	}
+	75% {
+		right: 0%;
+		left: 0%;
+	}
+	77% {
+		right: -100%;
+		left: 100%;
+	}
+	100% {
+		right: -100%;
+		left: 100%;
+	}
+}
+
+@keyframes blabla-three {
+	0% {
+		left: -100%;
+		right: 100%;
+	}
+	77% {
+		left: -100%;
+		right: 100%;
+	}
+	79% {
+		right: 0%;
+		left: 0%;
+	}
+	87% {
+		right: 0%;
+		left: 0%;
+	}
+	89% {
+		right: -100%;
+		left: 100%;
+	}
+	100% {
+		right: -100%;
+		left: 100%;
+	}
+}
+
+@keyframes blabla-four {
+	0% {
+		left: -100%;
+		right: 100%;
+	}
+	89% {
+		left: -100%;
+		right: 100%;
+	}
+	91% {
+		right: 0%;
+		left: 0%;
+	}
+	99% {
+		right: 0%;
+		left: 0%;
+	}
+	100% {
+		right: -100%;
+		left: 100%;
+	}
+	100% {
+		right: -100%;
+		left: 100%;
+	}
+}
+
+
